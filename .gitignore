@@ -1,0 +1,11 @@
+*.swp
+*~
+.DS_Store
+*.zwc
+.chpwd-recent-dirs
+/.config/*
+/.local/*
+!/.config/zsh/.zshrc
+!/.config/npm/npmrc
+!/.config/nvim/init.vim
+!/.config/tmux/tmux.conf

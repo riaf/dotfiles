@@ -1,0 +1,36 @@
+[user]
+	name = Keisuke SATO
+	email = riaf@me.com
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	pager = less
+[github]
+	user = riaf
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	st = status -sb
+	up = pull --rebase --prune
+	ci = commit -a
+	co = checkout
+	wd = diff --word-diff
+	lg = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
+	gr = grep -n --color
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+[push]
+	default = current
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+[ghq]
+	root = ~/.ghq/src
+
