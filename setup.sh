@@ -14,10 +14,10 @@ fi
 mkdir -pv \
   $CURRENT_DIR/.local/bin \
   $CURRENT_DIR/.local/share \
-  $CURRENT_DIR/.local/share/vim/{undo,swap,backup,viminfo} \
-  $CURRENT_DIR/.local/share/nvim/{undo,swap,backup,viminfo} \
   $CURRENT_DIR/.config/tmux/plugins \
-  $CURRENT_DIR/.local/share/vim/repos/github.com/Shougo
+  $CURRENT_DIR/.local/share/vim/repos/github.com/Shougo \
+  $HOME/.cache/vim/{undo,swap,backup} \
+  $HOME/.cache/nvim/{undo,swap,backup}
 
 ln -nsfv \
   $CURRENT_DIR/.zshenv \
