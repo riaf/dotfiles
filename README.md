@@ -3,5 +3,4 @@
 ## Installation
 
 1. Clone
-1. Run `./setup.sh`
-
+1. Run `./install`

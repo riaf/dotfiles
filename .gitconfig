@@ -33,4 +33,5 @@
 	smudge = git-lfs smudge %f
 [ghq]
 	root = ~/.ghq/src
-
+[init]
+	defaultBranch = main
