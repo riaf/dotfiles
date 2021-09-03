@@ -11,4 +11,8 @@
       force: true
     ~/.vimrc:
       force: true
+    ~/.gitconfig:
+      force: true
+    ~/.gitignore:
+      force: true
     ~/.zshenv:
