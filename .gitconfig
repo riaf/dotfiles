@@ -4,7 +4,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
-	pager = less
+	pager = diff-so-fancy | less -FXRi
 [github]
 	user = riaf
 [color]
@@ -23,10 +23,6 @@
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
 [push]
 	default = current
-[pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean %f
@@ -35,3 +31,5 @@
 	root = ~/.ghq/src
 [init]
 	defaultBranch = main
+[interactive]
+  diffFilter = diff-so-fancy --patch
