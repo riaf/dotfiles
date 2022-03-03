@@ -2,6 +2,7 @@ bindkey -e
 
 export HISTSIZE=10000
 export SAVEHIST=10000
+export PATH=$HOME/.afx:$PATH
 
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
@@ -11,37 +12,5 @@ setopt inc_append_history
 setopt hist_no_store
 setopt hist_reduce_blanks
 
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma-continuum/zinit.git "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
-
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-zinit light-mode for \
-    z-shell/z-a-rust \
-    z-shell/z-a-as-monitor \
-    z-shell/z-a-patch-dl \
-    z-shell/z-a-bin-gem-node \
-    zsh-users/zsh-autosuggestions \
-    zdharma-continuum/fast-syntax-highlighting \
-    zsh-users/zsh-completions \
-    zdharma-continuum/history-search-multi-word
-
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
-
-zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-    atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-    pick"direnv" src="zhook.zsh" for \
-        direnv/direnv
-
-zplugin ice as"program" pick"bin/git-dsf"
-zplugin light zdharma-continuum/zsh-diff-so-fancy
+eval "$(afx init)"
+eval "$(afx completion zsh)"

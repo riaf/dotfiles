@@ -4,6 +4,9 @@
 
 - clean: ["~"]
 
+- create:
+    - ~/.afx
+
 - link:
     ~/.tmux.conf:
       force: true
@@ -16,3 +19,9 @@
     ~/.gitignore:
       force: true
     ~/.zshenv:
+    ~/.config/afx/github.yml:
+      create: true
+      path: afx/github.yml
+
+- shell:
+    - curl -L https://github.com/b4b4r07/afx/releases/download/v0.1.15/afx_$(uname | tr "[:upper:]" "[:lower:]")_$(uname -m).tar.gz | tar zx -C ~/.afx

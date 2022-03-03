@@ -1,0 +1,57 @@
+github:
+  - name: direnv/direnv
+    description: direnv is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
+    owner: direnv
+    repo: direnv
+    release:
+      name: direnv
+      tag: v2.30.3
+      asset:
+        filename: "{{ .Release.Name }}.{{ .OS }}-{{ .Arch }}"
+    command:
+      link:
+        - from: direnv
+      snippet: |
+        eval $(direnv hook zsh)
+  - name: starship/starship
+    description: ~
+    owner: starship
+    repo: starship
+    release:
+      name: starship
+      tag: v1.3.0
+    command:
+      link:
+        - from: starship
+      snippet: |
+        eval $(starship init zsh)
+  - name: zsh-users/zsh-completions
+    owner: zsh-users
+    repo: zsh-completions
+    plugin:
+      sources:
+        - zsh-completions.plugin.zsh
+  - name: zsh-users/zsh-autosuggestions
+    owner: zsh-users
+    repo: zsh-autosuggestions
+    plugin:
+      sources:
+        - zsh-autosuggestions.zsh
+  - name: zdharma-continuum/fast-syntax-highlighting
+    owner: zdharma-continuum
+    repo: fast-syntax-highlighting
+    plugin:
+      sources:
+        - fast-syntax-highlighting.plugin.zsh
+  - name: zdharma-continuum/history-search-multi-word
+    owner: zdharma-continuum
+    repo: history-search-multi-word
+    plugin:
+      sources:
+        - history-search-multi-word.plugin.zsh
+  - name: so-fancy/diff-so-fancy
+    owner: so-fancy
+    repo: diff-so-fancy
+    command:
+      link:
+        - from: diff-so-fancy
