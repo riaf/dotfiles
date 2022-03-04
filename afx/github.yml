@@ -12,7 +12,7 @@ github:
       link:
         - from: direnv
       snippet: |
-        eval $(direnv hook zsh)
+        eval "$(direnv hook zsh)"
   - name: starship/starship
     description: ~
     owner: starship
@@ -24,7 +24,7 @@ github:
       link:
         - from: starship
       snippet: |
-        eval $(starship init zsh)
+        eval "$(starship init zsh)"
   - name: zsh-users/zsh-completions
     owner: zsh-users
     repo: zsh-completions
