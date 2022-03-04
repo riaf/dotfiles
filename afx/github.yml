@@ -5,7 +5,7 @@ github:
     repo: direnv
     release:
       name: direnv
-      tag: v2.30.3
+      tag: latest
       asset:
         filename: "{{ .Release.Name }}.{{ .OS }}-{{ .Arch }}"
     command:
@@ -19,7 +19,9 @@ github:
     repo: starship
     release:
       name: starship
-      tag: v1.3.0
+      tag: latest
+      asset:
+        filename: 'starship-{{ if eq .Arch "arm64" }}aarch64{{ else if eq .Arch "arm" }}arm{{ else if eq .Arch "amd64" }}x86_64{{ else }}{{ .Arch }}{{ end }}-{{ if eq .OS "darwin" }}apple-darwin{{ else if eq .OS "linux" }}unknown-linux-gnu{{ else if eq .OS "windows" }}pc-windows{{ else }}unknown-linux-musl{{ end }}.tar.gz'
     command:
       link:
         - from: starship
