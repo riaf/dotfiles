@@ -21,24 +21,41 @@ github:
       name: starship
       tag: latest
       asset:
-        filename: 'starship-{{ if eq .Arch "arm64" }}aarch64{{ else if eq .Arch "arm" }}arm{{ else if eq .Arch "amd64" }}x86_64{{ else }}{{ .Arch }}{{ end }}-{{ if eq .OS "darwin" }}apple-darwin{{ else if eq .OS "linux" }}unknown-linux-gnu{{ else if eq .OS "windows" }}pc-windows{{ else }}unknown-linux-musl{{ end }}.tar.gz'
+        filename: "{{ .Release.Name }}-{{ .Arch }}-{{ .OS }}.tar.gz"
+        replacements:
+          arm64: aarch64
+          amd64: x86_64
+          darwin: apple-darwin
+          linux: unknown-linux-gnu
+          windows: pc-windows
     command:
       link:
         - from: starship
       snippet: |
         eval "$(starship init zsh)"
+  - name: junegunn/fzf
+    owner: junegunn
+    repo: fzf
+    release:
+      name: fzf
+      tag: 0.29.0
+      asset:
+        filename: '{{ .Release.Name }}-{{ .Release.Tag }}-{{ .OS }}_{{ .Arch }}.{{ if eq .OS "darwin" }}zip{{ else }}tar.gz{{ end }}'
+    command:
+      link:
+        - from: fzf
   - name: zsh-users/zsh-completions
     owner: zsh-users
     repo: zsh-completions
     plugin:
       sources:
         - zsh-completions.plugin.zsh
-  - name: zsh-users/zsh-autosuggestions
-    owner: zsh-users
-    repo: zsh-autosuggestions
+  - name: marlonrichert/zsh-autocomplete
+    owner: marlonrichert
+    repo: zsh-autocomplete
     plugin:
       sources:
-        - zsh-autosuggestions.zsh
+        - zsh-autocomplete.plugin.zsh
   - name: zdharma-continuum/fast-syntax-highlighting
     owner: zdharma-continuum
     repo: fast-syntax-highlighting
@@ -51,6 +68,12 @@ github:
     plugin:
       sources:
         - history-search-multi-word.plugin.zsh
+  - name: b4b4r07/enhancd
+    owner: b4b4r07
+    repo: enhancd
+    plugin:
+      sources:
+        - init.sh
   - name: so-fancy/diff-so-fancy
     owner: so-fancy
     repo: diff-so-fancy
