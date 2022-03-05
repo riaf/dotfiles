@@ -24,6 +24,9 @@
     ~/.config/afx/github.yml:
       create: true
       path: afx/github.yml
+    ~/.config/afx/http.yml:
+      create: true
+      path: afx/http.yml
 
 - shell:
     - |
