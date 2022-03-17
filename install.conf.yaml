@@ -31,5 +31,5 @@
 - shell:
     - |
       if [ ! -f ~/.afx/afx ]; then
-        curl -L https://github.com/b4b4r07/afx/releases/download/v0.1.15/afx_$(uname | tr "[:upper:]" "[:lower:]")_$(uname -m).tar.gz | tar zx -C ~/.afx
+        curl -L https://github.com/b4b4r07/afx/releases/download/v0.1.18/afx_$(uname | tr "[:upper:]" "[:lower:]")_$(uname -m).tar.gz | tar zx -C ~/.afx
       fi
