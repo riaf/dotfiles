@@ -24,12 +24,9 @@
     ~/.config/afx/github.yml:
       create: true
       path: afx/github.yml
-    ~/.config/afx/http.yml:
-      create: true
-      path: afx/http.yml
 
 - shell:
     - |
       if [ ! -f ~/.afx/afx ]; then
-        curl -L https://github.com/b4b4r07/afx/releases/download/v0.1.18/afx_$(uname | tr "[:upper:]" "[:lower:]")_$(uname -m).tar.gz | tar zx -C ~/.afx
+        curl -L https://github.com/b4b4r07/afx/releases/download/v0.1.20/afx_$(uname | tr "[:upper:]" "[:lower:]")_$(uname -m).tar.gz | tar zx -C ~/.afx
       fi

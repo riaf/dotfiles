@@ -2,7 +2,7 @@ bindkey -e
 
 export HISTSIZE=10000
 export SAVEHIST=10000
-export PATH=$HOME/.afx:$PATH
+export PATH=$HOME/.afx:$HOME/bin:$PATH
 
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
@@ -14,3 +14,11 @@ setopt hist_reduce_blanks
 
 eval "$(afx init)"
 eval "$(afx completion zsh)"
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
