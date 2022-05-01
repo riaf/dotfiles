@@ -68,12 +68,25 @@ github:
     plugin:
       sources:
         - history-search-multi-word.plugin.zsh
-  - name: b4b4r07/enhancd
-    owner: b4b4r07
-    repo: enhancd
-    plugin:
-      sources:
-        - init.sh
+  - name: ajeetdsouza/zoxide
+    owner: ajeetdsouza
+    repo: zoxide
+    release:
+      name: zoxide
+      tag: v0.8.1
+      asset:
+        filename: "{{ .Release.Name }}-{{ .Release.Tag }}-{{ .Arch }}-{{ .OS }}.tar.gz"
+        replacements:
+          arm64: aarch64
+          amd64: x86_64
+          darwin: apple-darwin
+          linux: unknown-linux-gnu
+          windows: pc-windows
+    command:
+      link:
+        - from: zoxide
+      snippet: |
+        eval "$(zoxide init zsh)"
   - name: so-fancy/diff-so-fancy
     owner: so-fancy
     repo: diff-so-fancy
