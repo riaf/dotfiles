@@ -1,7 +1,11 @@
-# dotfiles
+# riaf/dotfiles
 
-## Installation
+```
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply riaf
+```
 
-1. Clone
-1. Run `./install`
-1. Run `afx install`
+## For setting up transitory environments
+
+```
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --one-shot riaf
+```
