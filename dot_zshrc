@@ -12,6 +12,12 @@ setopt inc_append_history
 setopt hist_no_store
 setopt hist_reduce_blanks
 
+if [ ! -f ~/.afx/afx ]; then
+  mkdir -p ~/.afx
+  curl -L https://github.com/b4b4r07/afx/releases/download/v0.1.21/afx_$(uname | tr "[:upper:]" "[:lower:]")_$(uname -m).tar.gz | tar zx -C ~/.afx
+  afx install
+fi
+
 eval "$(afx init)"
 eval "$(afx completion zsh)"
 
