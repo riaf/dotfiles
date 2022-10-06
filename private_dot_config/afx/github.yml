@@ -1,49 +1,4 @@
 github:
-  - name: direnv/direnv
-    description: direnv is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
-    owner: direnv
-    repo: direnv
-    release:
-      name: direnv
-      tag: latest
-      asset:
-        filename: "{{ .Release.Name }}.{{ .OS }}-{{ .Arch }}"
-    command:
-      link:
-        - from: direnv
-      snippet: |
-        eval "$(direnv hook zsh)"
-  - name: starship/starship
-    description: ~
-    owner: starship
-    repo: starship
-    release:
-      name: starship
-      tag: latest
-      asset:
-        filename: "{{ .Release.Name }}-{{ .Arch }}-{{ .OS }}.tar.gz"
-        replacements:
-          arm64: aarch64
-          amd64: x86_64
-          darwin: apple-darwin
-          linux: unknown-linux-gnu
-          windows: pc-windows
-    command:
-      link:
-        - from: starship
-      snippet: |
-        eval "$(starship init zsh)"
-  - name: junegunn/fzf
-    owner: junegunn
-    repo: fzf
-    release:
-      name: fzf
-      tag: 0.29.0
-      asset:
-        filename: '{{ .Release.Name }}-{{ .Release.Tag }}-{{ .OS }}_{{ .Arch }}.{{ if eq .OS "darwin" }}zip{{ else }}tar.gz{{ end }}'
-    command:
-      link:
-        - from: fzf
   - name: zsh-users/zsh-completions
     owner: zsh-users
     repo: zsh-completions
@@ -68,28 +23,18 @@ github:
     plugin:
       sources:
         - history-search-multi-word.plugin.zsh
-  - name: ajeetdsouza/zoxide
-    owner: ajeetdsouza
-    repo: zoxide
-    release:
-      name: zoxide
-      tag: v0.8.1
-      asset:
-        filename: "{{ .Release.Name }}-{{ .Release.Tag }}-{{ .Arch }}-{{ .OS }}.tar.gz"
-        replacements:
-          arm64: aarch64
-          amd64: x86_64
-          darwin: apple-darwin
-          linux: unknown-linux-musl
-          windows: pc-windows
-    command:
-      link:
-        - from: zoxide
-      snippet: |
-        eval "$(zoxide init zsh)"
   - name: so-fancy/diff-so-fancy
     owner: so-fancy
     repo: diff-so-fancy
     command:
       link:
         - from: diff-so-fancy
+  - name: asdf-vm/asdf
+    owner: asdf-vm
+    repo: asdf
+    plugin:
+      sources:
+        - asdf.sh
+    command:
+      link:
+        - from: bin/asdf
