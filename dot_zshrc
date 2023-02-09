@@ -2,7 +2,6 @@ bindkey -e
 
 export HISTSIZE=10000
 export SAVEHIST=10000
-export PATH=$HOME/.afx:$HOME/bin:$PATH
 
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
@@ -12,19 +11,32 @@ setopt inc_append_history
 setopt hist_no_store
 setopt hist_reduce_blanks
 
-if [ ! -f ~/.afx/afx ]; then
-  mkdir -p ~/.afx
-  curl -L https://github.com/b4b4r07/afx/releases/download/v0.1.25/afx_$(uname | tr "[:upper:]" "[:lower:]")_$(uname -m).tar.gz | tar zx -C ~/.afx
-  afx install
-fi
-
-eval "$(afx init)"
-eval "$(afx completion zsh)"
-
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
   autoload -Uz compinit
   compinit
+fi
+
+if type sheldon &>/dev/null
+then
+  eval "$(sheldon source)"
+else
+  echo "Sheldon is not installed, install it? (y/N)"
+  if read -q
+  then
+    curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
+      | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+  fi
+fi
+
+if type chezmoi &>/dev/null
+then
+  eval "$(chezmoi completion zsh)"
+fi
+
+if type fnm &>/dev/null
+then
+  eval "$(fnm env --use-on-cd)"
 fi

@@ -1,6 +1,7 @@
 local wezterm = require 'wezterm'
 
 return {
+  audible_bell = 'Disabled',
   color_scheme = 'GitHub Dark',
   font = wezterm.font_with_fallback {
     'UDEV Gothic 35NF',
