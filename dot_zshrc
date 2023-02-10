@@ -31,11 +31,6 @@ else
   fi
 fi
 
-if type chezmoi &>/dev/null
-then
-  eval "$(chezmoi completion zsh)"
-fi
-
 if type fnm &>/dev/null
 then
   eval "$(fnm env --use-on-cd)"

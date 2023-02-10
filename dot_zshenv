@@ -1,9 +1,16 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 
 typeset -gx -U path
+typeset -gx -U fpath
+
 path=( \
     /usr/local/bin(N-/) \
     /opt/local/bin(N-/) \
     ~/.local/bin(N-/) \
     "$path[@]" \
+)
+
+fpath=( \
+    ~/.local/share/zsh/Completion(N-/) \
+    $fpath \
 )
