@@ -1,6 +1,5 @@
 tap "deref/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
@@ -16,15 +15,34 @@ brew "helix"
 brew "imagemagick"
 brew "jq"
 brew "libsixel"
+brew "mas"
 brew "pv"
 brew "selenium-server", restart_service: true
 brew "sheldon"
 brew "supervisor"
 brew "deref/tap/exo"
 cask "1password-cli"
+cask "brave-browser"
 cask "chromedriver"
+cask "farrago"
 cask "font-noto-color-emoji"
+cask "font-udev-gothic-nf"
+cask "google-chrome"
 cask "google-cloud-sdk"
+cask "karabiner-elements"
+cask "loopback"
+cask "microsoft-edge"
+cask "orbstack"
+cask "raycast"
 cask "session-manager-plugin"
 cask "setapp"
+cask "slack"
+cask "visual-studio-code"
 cask "wezterm"
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Omnivore", id: 1564031042
+mas "Pages", id: 409201541
+mas "Tailscale", id: 1475387142
