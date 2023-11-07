@@ -3,13 +3,11 @@
 ## Install
 
 ```
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply riaf -b $HOME/.local/bin
-```
+# For the first time
+sudo xcode-select --install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-### For setting up transitory environments
-
-```
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --one-shot riaf -b $HOME/.local/bin
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply riaf
 ```
 
 ## Homebrew
