@@ -14,4 +14,17 @@ return {
   initial_cols = 120,
   initial_rows = 40,
   use_ime = true,
+  leader = { key = 'z', mods = 'CTRL', timeout_milliseconds = 1000 },
+  keys = {
+    {
+      key = "\"",
+      mods = "LEADER",
+      action = wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}},
+    },
+    {
+      key = "%",
+      mods = "LEADER",
+      action = wezterm.action{SplitVertical={domain="CurrentPaneDomain"}},
+    },
+  },
 }
